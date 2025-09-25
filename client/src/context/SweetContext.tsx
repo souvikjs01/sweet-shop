@@ -128,7 +128,8 @@ export const SweetProvider: React.FC<SweetProviderProps> = ({children}) => {
                 }
             })
 
-            setSweets((prev) => [...prev, data.data]);
+            const updatedSweet = data.data
+            setSweets((prev) => prev.map((sweet) => (sweet.id === id ? updatedSweet : sweet)))
             toast.success("sweet updated");
         } catch (error: any) {
             toast.error(error.response?.data?.message || "An error occured")
