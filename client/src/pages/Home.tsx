@@ -1,15 +1,19 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Header } from "../components/Header"
 import { Footer } from "../components/Footer"
 import { SweetCard } from "../components/SweetCard"
 import { useSweetData } from "../context/SweetContext"
 
 export default function Home() {
-//   const { sweets, purchaseSweet } = useSweets() 
   const [searchTerm, setSearchTerm] = useState<string>("")
-  const { sweets } = useSweetData()
+  const { sweets, searchSweets, searchSweetData } = useSweetData()
 
-//   const filteredSweets = sweets.filter((sweet) => sweet.name.toLowerCase().includes(searchTerm.toLowerCase()))
+  useEffect(() => {
+    const name = searchTerm.trim()
+    searchSweets(name)
+  }, [searchTerm])
+
+  const hasSearch = searchTerm.trim().length > 0
 
   return (
     <>  
@@ -23,15 +27,30 @@ export default function Home() {
                     placeholder="Search sweets..."
                     className="p-2 border border-gray-300 rounded-md w-full max-w-md focus:outline-none focus:ring-2 focus:ring-accent"
                     value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
+                    onChange={(e) => {
+                      setSearchTerm(e.target.value)
+                    }}
                 />
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                {/* <SweetCard sweet={sweet} /> */}
-                {/* {filteredSweets.map((sweet) => (
-                 <SweetCard key={sweet.id} sweet={sweet} onPurchase={purchaseSweet} /> 
-                ))}  */}
+            {hasSearch && (
+              <>
+                <h2 className="text-xl font-semibold mb-4">Search Results</h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-10">
+                  {searchSweetData.length > 0 ? (
+                    searchSweetData.map((sw) => (
+                      <SweetCard key={`search-${sw.id}`} sweet={sw} />
+                    ))
+                  ) : (
+                    <p className="col-span-full text-center text-gray-500">
+                      No sweets found for your search.
+                    </p>
+                  )}
+                </div>
+              </>
+            )}
 
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 {sweets.map((sw) => (
                     <SweetCard key={sw.id} sweet={sw} />
                 ))}

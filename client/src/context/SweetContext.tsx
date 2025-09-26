@@ -15,14 +15,9 @@ const server = "http://localhost:8000";
 
 interface SweetContextType {
     sweets: Sweet[];
+    searchSweetData: Sweet[];
     fetchSweets: () => Promise<void>;
-    searchSweets: (params: {
-        name?: string;
-        category?: string;
-        minPrice?: number;
-        maxPrice?: number;
-    }) => Promise<void>;
-    searchSweet: Sweet[];
+    searchSweets: (name: string) => Promise<void>;
     addSweet: (
         name: string, 
         category: string, 
@@ -49,7 +44,7 @@ interface SweetProviderProps {
 
 export const SweetProvider: React.FC<SweetProviderProps> = ({children}) => {
     const [sweets, setSweets] = useState<Sweet[]>([]);
-    const [searchSweet, setSearchSweet] = useState<Sweet[]>([])
+    const [searchSweetData, setSearchSweetData] = useState<Sweet[]>([]);
 
 
     const fetchSweets = useCallback(async () => {
@@ -68,19 +63,11 @@ export const SweetProvider: React.FC<SweetProviderProps> = ({children}) => {
         }
     }, [])
 
-    async function searchSweets(params: {
-        name?: string;
-        category?: string;
-        minPrice?: number;
-        maxPrice?: number;
-    }) {
+    async function searchSweets(name: string) {
         try {
             const query = new URLSearchParams();
 
-            if (params.name) query.append("name", params.name);
-            if (params.category) query.append("category", params.category);
-            if (params.minPrice !== undefined) query.append("minPrice", params.minPrice.toString());
-            if (params.maxPrice !== undefined) query.append("maxPrice", params.maxPrice.toString());
+            if (name) query.append("name", name);
 
             const { data } = await axios.get(`${server}/api/sweets/search?${query.toString()}`, {
                 headers: {
@@ -88,7 +75,7 @@ export const SweetProvider: React.FC<SweetProviderProps> = ({children}) => {
                 }
             });
 
-            setSearchSweet(data.data);
+            setSearchSweetData(data.data);
         } catch (error) {
             console.error("Error fetching sweets", error);
         }
@@ -161,11 +148,11 @@ export const SweetProvider: React.FC<SweetProviderProps> = ({children}) => {
             value={{ 
                 sweets,
                 fetchSweets,
-                searchSweets,
-                searchSweet,   
+                searchSweets, 
+                searchSweetData, 
                 addSweet,
                 deleteSweet,    
-                updateSweet  
+                updateSweet,
             }}    
         >
             {children}
