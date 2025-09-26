@@ -34,22 +34,22 @@ Built with **React.js (frontend)** and **Node.js + Express + Prisma (backend)**.
 ###📸 Screenshots
 
 Register Page
-<img width="1920" height="1080" alt="Screenshot (4)" src="https://github.com/user-attachments/assets/d424c500-d131-4578-85e3-115ace2e507f" />
+<img width="1920" height="1080" alt="Screenshot (10)" src="https://github.com/user-attachments/assets/09a94c11-aa4d-4e75-bee0-19ce8b6e54a5" />
 
 Login Page
-<img width="1920" height="1080" alt="Screenshot (3)" src="https://github.com/user-attachments/assets/06cf540e-5e0a-47f9-a374-ebcdbd618c80" />
+<img width="1920" height="1080" alt="Screenshot (9)" src="https://github.com/user-attachments/assets/6af8615a-6599-4e5f-a6f7-663308323b3a" />
 
 All Sweets
-<img width="1920" height="1080" alt="Screenshot (5)" src="https://github.com/user-attachments/assets/cabc8229-19a0-4ac8-8b8c-94759fd676aa" />
+<img width="1920" height="1080" alt="Screenshot (11)" src="https://github.com/user-attachments/assets/6b6efd19-4570-4668-b538-a02f7f8694f2" />
 
 Search Sweets
-<img width="1920" height="1080" alt="Screenshot (7)" src="https://github.com/user-attachments/assets/73c30cc1-32b3-4757-91d4-bbd3680018a8" />
-<img width="1920" height="1080" alt="Screenshot (8)" src="https://github.com/user-attachments/assets/bd8c119b-b6cc-406e-af85-7487203edd9f" />
+<img width="1920" height="1080" alt="Screenshot (18)" src="https://github.com/user-attachments/assets/a02c7407-80fd-47f1-9a01-d71c300f5173" />
+<img width="1920" height="1080" alt="Screenshot (19)" src="https://github.com/user-attachments/assets/def30bb1-1e89-45dc-9fc6-623958f117bb" />
+<img width="1920" height="1080" alt="Screenshot (16)" src="https://github.com/user-attachments/assets/99565623-7452-4dc5-9194-61aa987259cb" />
 
 Admin Dashboard
-<img width="1920" height="1080" alt="Screenshot (6)" src="https://github.com/user-attachments/assets/5ab9324d-e9ac-4c65-ac50-37e5701759d5" />
-<img width="1899" height="1013" alt="Screenshot 2025-09-26 113833" src="https://github.com/user-attachments/assets/5621c359-621d-4594-b55b-27f3f8f9e74b" />
-<img width="1909" height="1026" alt="Screenshot 2025-09-26 113929" src="https://github.com/user-attachments/assets/dfd87ad3-6be1-4b30-8e88-5e41ee33c693" />
+<img width="1920" height="1080" alt="Screenshot (14)" src="https://github.com/user-attachments/assets/5544ab76-d788-45ce-9fe9-91f7b83e870b" />
+<img width="1920" height="1080" alt="Screenshot (15)" src="https://github.com/user-attachments/assets/810fee2e-a632-4554-90b1-fe17f4d27555" />
 
 
 
